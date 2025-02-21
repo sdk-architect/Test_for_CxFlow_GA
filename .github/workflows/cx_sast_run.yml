@@ -39,7 +39,8 @@ jobs:
         scanners: sast
         bug_tracker: Sarif
         params: --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref_name }} --cx-flow.filterSeverity --cx-flow.filterCategory  --checkmarx.disable-clubbing=true
+        additional_params: --report-format sarif --output-path . --output-name cx_result
     - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v2
+      uses: github/codeql-action/upload-sarif@v3
       with:
-        sarif_file: cx.sarif
+        sarif_file: cx_results.sarif
