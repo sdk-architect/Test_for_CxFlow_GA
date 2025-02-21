@@ -23,6 +23,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -43,3 +44,4 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: cx.sarif
+        
